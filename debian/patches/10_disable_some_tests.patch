@@ -1,0 +1,17 @@
+Description: Disable some patches
+Author: Anton Gladky <gladk@debian.org>
+Last-Update: 2021-11-09
+
+Index: yade/scripts/checks-and-tests/checks/checkList.py
+===================================================================
+--- yade.orig/scripts/checks-and-tests/checks/checkList.py
++++ yade/scripts/checks-and-tests/checks/checkList.py
+@@ -30,7 +30,7 @@ singleCore = [
+ slowScripts = ['checkClumpHopper.py', 'checkMPISilo.py', 'colliderTorture.py', 'checkFlipSpheres.py']
+ 
+ # checkSpawn.py fails always for now, needs investigations
+-skipScripts = ['checkList.py']
++skipScripts = ['checkList.py', 'checkMPISilo.py','checkJCFpm.py','DEM-PFV-check.py','checkMPYcomm.py', 'checkMPI4PYcomm.py', 'checkMPI.py', 'checkPolyhedraCrush.py', 'checkCapillaryEngineStandalone.py']
+ # use this if you want to test only one script, it takes precedence over skipScripts.
+ onlyOneScript = []
+ 
