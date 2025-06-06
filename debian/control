@@ -64,7 +64,7 @@ Homepage: https://yade-dem.org/doc/
 Rules-Requires-Root: no
 
 Package: yade
-Architecture: amd64 arm64
+Architecture: any
 Multi-Arch: foreign
 Depends: gnuplot,
          libyade (= ${binary:Version}),
@@ -88,7 +88,7 @@ Description: Platform for discrete element modeling
  This package contains speed-optimized build of yade.
 
 Package: libyade
-Architecture: amd64 arm64
+Architecture: any
 Multi-Arch: same
 Depends: ${misc:Depends},
          ${shlibs:Depends}
@@ -106,7 +106,7 @@ Description: Platform for discrete element modeling. Libraries
  This package contains yade`s libraries.
 
 Package: python3-yade
-Architecture: amd64 arm64
+Architecture: any
 Multi-Arch: foreign
 Section: python
 Depends: libyade (= ${binary:Version}),

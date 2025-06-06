@@ -1,3 +1,9 @@
+yade (2025.2.0-1deepin1) unstable; urgency=medium
+
+  * Disable float128 on riscv64 & loongarch64
+
+ -- Cryolitia <cryolitia@deepin.org>  Fri, 06 Jun 2025 16:45:17 +0800
+
 yade (2025.2.0-1) unstable; urgency=medium
 
   * [bf7792b] New upstream version 2025.2.0

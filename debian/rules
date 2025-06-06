@@ -18,7 +18,7 @@ endif
 
 # We disable parallel builds on all platforms by now
 # Ubuntu has problems with it and it causes sync-delays
-parallelBuild=--no-parallel
+# parallelBuild=--no-parallel
 
 %:
 	dh $@ --builddirectory=$(BUILDDIR) --with python3 $(parallelBuild)
@@ -29,8 +29,17 @@ export DEB_LDFLAGS_MAINT_APPEND = -Wl,--no-as-needed,-no-keep-memory
 # out of address space when linking
 export DEB_CXXFLAGS_MAINT_APPEND += -g0
 
+ifneq (,$(filter $(DEB_HOST_ARCH), riscv64 loong64))
+	export DEB_CXXFLAGS_MAINT_APPEND += -Wno-error=cast-align -Wno-error=array-bounds
+endif
+
 # Check, whether Build-Depends-Indep are installed
 BUILD_DOC=$(shell dpkg -s python3-sphinx | grep -q "^Status:.* installed$$" && echo yes)
+
+# qt5webenginewidgets not available on loongarch
+ifneq (,$(filter $(DEB_HOST_ARCH), loong64))
+	BUILD_DOC=no
+endif
 
 LD_LIBRARY_PATH_DOUBLE =  $(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX):$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX)/py/gts:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX)/py/yade:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX)/py/yade/qt:$(LD_LIBRARY_PATH)
 LD_LIBRARY_PATH_LONGDOUBLE =  $(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX):$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX)/py/gts:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX)/py/yade:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX)/py/yade/qt:$(LD_LIBRARY_PATH)
@@ -55,7 +64,7 @@ extra_flags += \
 
 override_dh_auto_configure:
 	dh_auto_configure -- $(extra_flags) -B$(BUILDDIR)-$(DOUBLE_SUFFIX) -DSUFFIX=-$(DOUBLE_SUFFIX) -DREAL_DECIMAL_PLACES=15
-ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el)) # Disable longdouble on ppc64el due to crash
+ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el riscv64 loong64)) # Disable longdouble on ppc64el due to crash
 	dh_auto_configure -- $(extra_flags) -B$(BUILDDIR)-$(LONGDOUBLE_SUFFIX) -DSUFFIX=-$(LONGDOUBLE_SUFFIX) -DREAL_DECIMAL_PLACES=18
 endif
 ifneq (,$(filter $(DEB_HOST_ARCH), amd64 i386))
@@ -70,7 +79,7 @@ endif
 
 override_dh_auto_build:
 	dh_auto_build -B$(BUILDDIR)-$(DOUBLE_SUFFIX)
-ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el))
+ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el riscv64 loong64))
 	dh_auto_build -B$(BUILDDIR)-$(LONGDOUBLE_SUFFIX)
 endif
 ifneq (,$(filter $(DEB_HOST_ARCH), amd64 i386))
@@ -80,7 +89,7 @@ endif
 
 override_dh_auto_install:
 	dh_auto_install -B$(BUILDDIR)-$(DOUBLE_SUFFIX)
-ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el))
+ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el riscv64 loong64))
 	dh_auto_install -B$(BUILDDIR)-$(LONGDOUBLE_SUFFIX)
 endif
 ifneq (,$(filter $(DEB_HOST_ARCH), amd64 i386))
@@ -92,7 +101,7 @@ endif
 	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_DOUBLE) help2man $(tmpInstall)/usr/bin/yade-double-batch > yade-batch.1
 	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_DOUBLE) $(tmpInstall)/usr/bin/yade-$(DOUBLE_SUFFIX) --test
 	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_DOUBLE) $(tmpInstall)/usr/bin/yade-$(DOUBLE_SUFFIX) --check
-ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el))
+ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el riscv64 loong64))
 	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_LONGDOUBLE) $(tmpInstall)/usr/bin/yade-$(LONGDOUBLE_SUFFIX) --test
 	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_LONGDOUBLE) $(tmpInstall)/usr/bin/yade-$(LONGDOUBLE_SUFFIX) --check
 endif
@@ -130,6 +139,9 @@ override_dh_auto_test:
 ifeq ($(BUILD_DOC), yes)
 execute_after_dh_installdocs:
 	dh_sphinxdoc
+else
+override_dh_installdocs:
+	
 endif
 
 execute_after_dh_auto_clean:
