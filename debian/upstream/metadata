@@ -1,0 +1,15 @@
+Reference:
+  Author: V.ŠMilauer and E. Catalano and B. Chareyre and S. Dorofeenko and J. Duriez
+    and A. Gladky and J. Kozicki and C. Modenese and L. Scholtès and L. Sibille and
+    J. Stránský and K. Thoeni
+  Title: Yade Documentation (V. Šmilauer, ed.),
+  Journal: The Yade Project, 2nd ed.
+  DOI: DOI 10.5281/zenodo.34073
+  Year: 2015
+  Type: INPROCEEDINGS
+  URL: https://yade-dem.org/doc/Yade.pdf
+Bug-Database: https://gitlab.com/yade-dev/trunk/-/issues
+Gallery: https://yade-dem.org/wiki/Screenshots_and_videos
+Repository: https://gitlab.com/yade-dev/trunk.git
+Repository-Browse: https://gitlab.com/yade-dev/trunk
+Bug-Submit: https://gitlab.com/yade-dev/trunk/-/issues/new

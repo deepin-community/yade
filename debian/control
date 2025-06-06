@@ -1,15 +1,155 @@
-Source: template-repository
-Section: unknown
+Source: yade
+Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+Uploaders: Anton Gladky <gladk@debian.org>
+Section: science
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: cmake,
+               debhelper-compat (= 13),
+               dh-exec,
+               dh-python,
+               freeglut3-dev,
+               help2man,
+               libboost-all-dev,
+               libbz2-dev,
+               libeigen3-dev,
+               libgl-dev,
+               libgmp-dev,
+               libgts-dev,
+               libmetis-dev,
+               libmpc-dev,
+               libmpfr-dev,
+               libmpfrc++-dev,
+               libopenblas-dev,
+               libqglviewer-dev-qt5,
+               libsqlite3-dev,
+               libsuitesparse-dev,
+               libvtk9-dev,
+               libxi-dev,
+               libxmu-dev,
+               pyqt5-dev-tools,
+               python3-bibtexparser,
+               python3-dev,
+               python3-ipython,
+               python3-matplotlib,
+               python3-minieigen,
+               python3-mpi4py,
+               python3-mpmath,
+               python3-numpy,
+               python3-pickleshare,
+               python3-pil,
+               python3-pygraphviz,
+               python3-pyqt5,
+               python3-pyqt5.qtsvg,
+               python3-sphinx,
+               python3-tk,
+               python3-xlib,
+               zlib1g-dev,
+               dvipng,
+               graphviz,
+               libjs-jquery,
+               lmodern,
+               texlive-fonts-recommended,
+               texlive-lang-all,
+               texlive-plain-generic,
+               texlive-lang-greek,
+               texlive-latex-extra,
+               texlive-latex-recommended,
+               texlive-pictures,
+               texlive-xetex,
+               tipa
+Standards-Version: 4.7.0
+Vcs-Browser: https://salsa.debian.org/science-team/yade
+Vcs-Git: https://salsa.debian.org/science-team/yade.git
+Homepage: https://yade-dem.org/doc/
+Rules-Requires-Root: no
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: yade
+Architecture: amd64 arm64
+Multi-Arch: foreign
+Depends: gnuplot,
+         libyade (= ${binary:Version}),
+         python3-yade (= ${binary:Version}),
+         python3-ipython,
+         python3-mpi4py,
+         python3-pyqt5.qtwebengine,
+         ${python3:Depends},
+         ${misc:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Description: Platform for discrete element modeling
+ Yet Another Dynamic Engine.
+ .
+ Extensible open-source framework for discrete numerical models,
+ focused on Discrete Element Method.
+ The computation parts are written in c++ using flexible object model,
+ allowing independent implementation of new algorithms and interfaces.
+ Python is used for rapid and concise scene construction,
+ simulation control, postprocessing and debugging.
+ .
+ This package contains speed-optimized build of yade.
+
+Package: libyade
+Architecture: amd64 arm64
+Multi-Arch: same
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Description: Platform for discrete element modeling. Libraries
+ Yet Another Dynamic Engine.
+ .
+ Extensible open-source framework for discrete numerical models,
+ focused on Discrete Element Method.
+ The computation parts are written in c++ using flexible object model,
+ allowing independent implementation of new algorithms and interfaces.
+ Python is used for rapid and concise scene construction,
+ simulation control, postprocessing and debugging.
+ .
+ This package contains yade`s libraries.
+
+Package: python3-yade
+Architecture: amd64 arm64
+Multi-Arch: foreign
+Section: python
+Depends: libyade (= ${binary:Version}),
+         python3-matplotlib,
+         python3-mpmath,
+         python3-pil,
+         python3-pyqt5,
+         python3-pyqt5.qtsvg,
+         python3-tk,
+         python3-xlib,
+         python3-mpi4py,
+         ${misc:Depends},
+         ${python3:Depends},
+         ${shlibs:Depends}
+Pre-Depends: ${misc:Pre-Depends}
+Description: Platform for discrete element modeling. Python bindings
+ Yet Another Dynamic Engine.
+ .
+ Extensible open-source framework for discrete numerical models,
+ focused on Discrete Element Method.
+ The computation parts are written in c++ using flexible object model,
+ allowing independent implementation of new algorithms and interfaces.
+ Python is used for rapid and concise scene construction,
+ simulation control, postprocessing and debugging.
+ .
+ This package contains python bindings for yade.
+
+Package: yade-doc
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${sphinxdoc:Depends},
+         ${misc:Depends},
+         libjs-mathjax
+Recommends: yade
+Description: Platform for discrete element modeling. Documentation
+ Yet Another Dynamic Engine.
+ .
+ Extensible open-source framework for discrete numerical models,
+ focused on Discrete Element Method.
+ The computation parts are written in c++ using flexible object model,
+ allowing independent implementation of new algorithms and interfaces.
+ Python is used for rapid and concise scene construction,
+ simulation control, postprocessing and debugging.
+ .
+ This package contains examples, test scripts and documentation.

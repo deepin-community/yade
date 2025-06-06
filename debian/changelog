@@ -1,5 +1,1393 @@
-template-repository (1.0-1) unstable; urgency=medium
+yade (2025.2.0-1) unstable; urgency=medium
 
-  * Initial release
+  * [bf7792b] New upstream version 2025.2.0
+  * [38ca42f] Refresh patches
+  * [c7a7ef9] d/control: set Standards-Version to 4.7.0
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Anton Gladky <gladk@debian.org>  Mon, 10 Feb 2025 06:43:53 +0100
+
+yade (2024.08a-5) unstable; urgency=medium
+
+  * Team upload
+  * Use WebEngine over WebKit (Closes: #1093292)
+  * Fix build failure for python3.13 (Closes: #1091514)
+
+ -- Bastian Germann <bage@debian.org>  Fri, 17 Jan 2025 17:16:01 +0100
+
+yade (2024.08a-4) unstable; urgency=medium
+
+  * [154ec10] Drop Build-Depends-Indep section.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 02 Sep 2024 06:06:43 +0200
+
+yade (2024.08a-3) unstable; urgency=medium
+
+  * [c8bf7d9] Add python3-bibtexparser to BD.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 01 Sep 2024 20:06:29 +0200
+
+yade (2024.08a-2) unstable; urgency=medium
+
+  * [1d0a0b6] Move sphinx into the all-build-depends.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 31 Aug 2024 09:52:43 +0200
+
+yade (2024.08a-1) unstable; urgency=medium
+
+  [ Anton Gladky ]
+  * [6013198] Add python3-pickleshare and texlive-lang-greek
+  * [9ab8ae8] Build PDF again
+
+  [ Alexandre Detiste ]
+  * [5ffb1f0] remove dependency on obsolete python3-ipython-genutils
+
+  [ Anton Gladky ]
+  * [db1c63d] New upstream version 2024.08a. (Closes: #1074435)
+  * [bd97955] Install Yade.pdf.
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 15 Aug 2024 06:14:58 +0200
+
+yade (2024.02a-1) unstable; urgency=medium
+
+  * [bde766b] New upstream version 2024.02a
+  * [4052593] Remove applied patches
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 10 Feb 2024 09:19:39 +0100
+
+yade (2023.02a-15) unstable; urgency=medium
+
+  * [e48f730] Better fix for no-future patch
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 08 Feb 2024 19:35:02 +0100
+
+yade (2023.02a-14) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Alexandre Detis ]
+  * Move away from python3-future
+    Closes: #1060026
+
+  [ Andreas Tille ]
+  * Add salsa-ci file (routine-update)
+  * Rules-Requires-Root: no (routine-update)
+  * Multi-Arch hint
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 27 Jan 2024 20:37:29 +0100
+
+yade (2023.02a-13) unstable; urgency=medium
+
+  * [185c15b] Do not build on s390x, i386 and ppc64el.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 14 Jan 2024 19:24:46 +0100
+
+yade (2023.02a-12) unstable; urgency=medium
+
+  * [5fb18d1] Disable latex doc build.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 13 Jan 2024 09:59:34 +0100
+
+yade (2023.02a-11) unstable; urgency=medium
+
+  * [4edc111] One more try to disable latex build.
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 12 Jan 2024 21:06:35 +0100
+
+yade (2023.02a-10) unstable; urgency=medium
+
+  * [c588c89] Disable PDF building
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 12 Jan 2024 06:48:14 +0100
+
+yade (2023.02a-9) unstable; urgency=medium
+
+  * [8474ec3] Fix GCC-13 crash on mpfr-150 compilation.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 08 Jan 2024 19:46:55 +0100
+
+yade (2023.02a-8) unstable; urgency=medium
+
+  * [f1a6f56] Fix multiprecision compilation. (Closes: #1055972, #1054681)
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 22 Dec 2023 21:57:18 +0100
+
+yade (2023.02a-7) unstable; urgency=medium
+
+  * [6d7ba29] Add texlive-lang-all to BD
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 21 Sep 2023 20:14:41 +0200
+
+yade (2023.02a-6) unstable; urgency=medium
+
+  * Sync to unstable.
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 19 Sep 2023 07:35:46 +0200
+
+yade (2023.02a-6~exp1) experimental; urgency=medium
+
+  * [648d925] Fix CGAL-issue.
+  * [ebd2ccb] Replace libgl1-mesa-dev by libgl-dev.
+  * [852dd8e] Update license in d/copyright.
+  * [bebb069] Remove homepage from d/u/metadata.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 17 Sep 2023 11:38:46 +0200
+
+yade (2023.02a-5) unstable; urgency=medium
+
+  * [611435d] Add texlive-lang-all to BD.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 16 Sep 2023 06:13:47 +0200
+
+yade (2023.02a-4) unstable; urgency=medium
+
+  * Sync to unstable.
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 15 Sep 2023 18:29:04 +0200
+
+yade (2023.02a-4~exp1) experimental; urgency=medium
+
+  * [06b5c4e] Temporarily remove libcgal-dev from BD to fix the FTBFS.
+              https://github.com/CGAL/cgal/issues/7715
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 15 Sep 2023 07:57:46 +0200
+
+yade (2023.02a-3) unstable; urgency=medium
+
+  * [14e4d83] Fix compilation error with GCC-13. (Closes: #1037905)
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 12 Sep 2023 17:43:51 +0200
+
+yade (2023.02a-2) unstable; urgency=medium
+
+  * [73b47a2] Remove broken link from python3-yade. (Closes: #1036578).
+              The package needs a proper fix after release.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 27 May 2023 08:58:37 +0200
+
+yade (2023.02a-1) unstable; urgency=medium
+
+  * Upload into unstable.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 05 Feb 2023 09:18:14 +0100
+
+yade (2023.02a-1~exp4) experimental; urgency=medium
+
+  * [3a4e777] Add python3-ipython-genutils into BD.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 04 Feb 2023 09:36:16 +0100
+
+yade (2023.02a-1~exp3) experimental; urgency=medium
+
+  * [47c6bba] Disable checkCapillaryEngineStandalone test.
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 03 Feb 2023 19:33:33 +0100
+
+yade (2023.02a-1~exp2) experimental; urgency=medium
+
+  * [b900b80] Add python3.11 as supported.
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 02 Feb 2023 21:34:00 +0100
+
+yade (2023.02a-1~exp1) experimental; urgency=medium
+
+  * [dcff066] New upstream version 2023.02a. (Closes: #1028983, #1022735)
+  * [873e430] Remove all patches (applied by upstream)
+  * [ad4babe] Remove lintian overrides
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 02 Feb 2023 07:23:39 +0100
+
+yade (2022.01a-13) unstable; urgency=medium
+
+  * [03b172a] Fix doc: import error in make doc. (Closes: #1022735)
+  * [8e92f56] Set upstream metadata fields: Bug-Database, Bug-Submit.
+  * [f97e430] Update standards version to 4.6.2, no changes needed.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 14 Jan 2023 21:29:32 +0100
+
+yade (2022.01a-12) unstable; urgency=medium
+
+  * [b29c74b] Drop mpfr150 test on i386
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 01 Sep 2022 19:11:57 +0200
+
+yade (2022.01a-11) unstable; urgency=medium
+
+  * [c1ead14] Fix i386 and ppc64el builds.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 28 Aug 2022 12:45:34 +0200
+
+yade (2022.01a-10) unstable; urgency=medium
+
+  * [5528878] Fix GCC-12 FTBFS. (Closes: #1013072)
+  * [884074b] Fix tests. (Closes: #1013932)
+  * [2641285] Set Standards-Version: 4.6.1
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 21 Aug 2022 12:23:09 +0200
+
+yade (2022.01a-9) unstable; urgency=medium
+
+  * [cd0712a] Revert "Do not run a special test on i386."
+              Potential bug is fixed in the boost1.74.
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 02 Jun 2022 22:43:59 +0200
+
+yade (2022.01a-8) unstable; urgency=medium
+
+  * [fc5ece6] Do not run a special test on i386. (Closes: #1009739)
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 26 May 2022 17:39:05 +0200
+
+yade (2022.01a-7) unstable; urgency=medium
+
+  * [60318e0] Fix compilation against python3.10
+  * [6b8771d] Fix typo in d/rules
+  * [50f426a] Apply cme fix dpkg
+  * [f335d77] Re-export upstream signing key without extra signatures.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 21 Mar 2022 21:59:26 +0100
+
+yade (2022.01a-6) unstable; urgency=medium
+
+  * [064dad3] Disable polyhedra-check (random failure)
+  * [6810277] Disable longdouble on ppc64el due to crash
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 30 Jan 2022 22:24:02 +0100
+
+yade (2022.01a-5) unstable; urgency=medium
+
+  * [18456f2] Minor update in d/rules
+  * Upload into unstable
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 28 Jan 2022 21:45:41 +0100
+
+yade (2022.01a-5~exp3) experimental; urgency=medium
+
+  * [bc47573] Remove executive flag from debian/yade.links
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 27 Jan 2022 21:53:36 +0100
+
+yade (2022.01a-5~exp2) experimental; urgency=medium
+
+  * [9908b97] Import patch from upstream, hp-precision
+  * [b9eb6e2] Disable debug-info
+  * [45d907b] Build float128 only on i386 and amd64
+  * [69d4d14] Link yade-double onto yade
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 26 Jan 2022 23:00:42 +0100
+
+yade (2022.01a-5~exp1) experimental; urgency=medium
+
+  * [903cd50] Build real-hp binaries
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 24 Jan 2022 21:08:02 +0100
+
+yade (2022.01a-4) unstable; urgency=medium
+
+  * [5ce4c3f] Enable HP-builds
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 19 Jan 2022 21:48:19 +0100
+
+yade (2022.01a-3) unstable; urgency=medium
+
+  * [cc2eda2] Disable REAL_HP on i386 and ppc64el
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 17 Jan 2022 07:08:04 +0100
+
+yade (2022.01a-2) unstable; urgency=medium
+
+  * [0b10d04] Disable REAL_HP on arm64 and s390x due to build failures
+  * [02633b2] Add debian/upstream/signing-key.asc
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 16 Jan 2022 20:54:00 +0100
+
+yade (2022.01a-1) unstable; urgency=medium
+
+  * [1d00544] New upstream version 2022.01a
+  * [69672ae] Refresh patches
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 16 Jan 2022 18:11:14 +0100
+
+yade (2021.11~git~6f71ebd-1) unstable; urgency=medium
+
+  * [8b5ce9c] Update d/watch
+  * [d9a65d5] New upstream version 2021.11~git~6f71ebd. (Closes: #984421)
+  * [2ff5d77] Clean d/patches
+  * [36d8e29] Use no-as-needed in d/rules
+  * [8ae7d89] Set Standards-Version: 4.6.0
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 09 Nov 2021 22:01:35 +0100
+
+yade (2021.01a-3) unstable; urgency=medium
+
+  * [3187a87] Add python3-mpi4py in dependencies
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 31 Jan 2021 09:41:34 +0100
+
+yade (2021.01a-2) unstable; urgency=medium
+
+  * [14189ec] Disable MPI scripts
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 30 Jan 2021 09:52:42 +0100
+
+yade (2021.01a-2~exp1) experimental; urgency=medium
+
+  * [2019289] Try to enable MPI
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 28 Jan 2021 19:59:56 +0100
+
+yade (2021.01a-1) unstable; urgency=medium
+
+  * [37b3ec0] New upstream version 2021.01a
+  * [1bdbffa] Remove unused patch
+  * [046c6a8] Ignore quilt dir
+  * [3c4e204] Update description of the patch
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 17 Jan 2021 19:26:03 +0100
+
+yade (2021.01~git~3a576ca-1) experimental; urgency=medium
+
+  * [80a92cc] New upstream version 2021.01~git~3a576ca
+  * [490127a] Remove applied by upstream patches
+  * [535af2e] Disable DEM-PFV-check.py test
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 17 Jan 2021 10:06:46 +0100
+
+yade (2021.01~git~2~e7655b1-2) experimental; urgency=medium
+
+  * [300dbde] Disable JCFpm-test
+  * [0ec3178] Workaround one test on 32-bit platform
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 16 Jan 2021 09:48:21 +0100
+
+yade (2021.01~git~2~e7655b1-1) experimental; urgency=medium
+
+  * [acc7d10] New upstream version 2021.01~git~2~e7655b1
+  * [d1fb261] Refresh patches
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 15 Jan 2021 19:03:59 +0100
+
+yade (2021.01~git~1~7243a772-1~exp3) experimental; urgency=medium
+
+  * [0a889be] Fix compilation
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 13 Jan 2021 19:48:00 +0100
+
+yade (2021.01~git~1~7243a772-1~exp2) experimental; urgency=medium
+
+  * [fc63699] Add VTK9 patch
+  * [233f590] Switch to VTK9
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 12 Jan 2021 22:30:12 +0100
+
+yade (2021.01~git~1~7243a772-1~exp1) experimental; urgency=medium
+
+  * [2fb17be] New upstream version 2021.01~git~1~7243a772
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 11 Jan 2021 23:07:37 +0100
+
+yade (2021.01~git~0~088ea96-1~exp3) experimental; urgency=medium
+
+  * [7c5ae19] Disable MPI
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 11 Jan 2021 17:31:15 +0100
+
+yade (2021.01~git~0~088ea96-1~exp2) experimental; urgency=medium
+
+  * [6992ebe] Fix compilation on arm and ppc
+  * [48998dd] Disable checkMPISilo script
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 10 Jan 2021 18:49:02 +0100
+
+yade (2021.01~git~0~088ea96-1~exp1) experimental; urgency=medium
+
+  * [c0dd3eb] New upstream version 2021.01~git~0~088ea96
+  * [98bc538] Clean patches
+  * [d5b90b9] Update d/copyright
+  * [a461c4c] Use --checkall for tests
+  * [049e86b] Minor fix in d/control
+  * [09ca779] Set Standards-Version to 4.5.1
+  * [f1b9991] Ignore quilt dir
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 09 Jan 2021 20:49:48 +0100
+
+yade (2020.01a-13) unstable; urgency=medium
+
+  * [752a547] Use python3-dev instead of python3-all-dev.
+              (Closes: #975897)
+  * [d835e63], [c85d421] Support python 3.9.
+              (Closes: #975878)
+  * [320f3af] Ignore quilt dir
+  * [002a263] Update renamed lintian tag names in lintian overrides.
+  * [5e63e04] Update watch file format version to 4.
+  * [0340d8b] Apply cme fix dpkg
+  * [b5ada51] Update changelog.
+  * [dc4c833] Fix python3.9 compilation
+  * [cc66be1] Update changelog.
+  * [5f73f40] Fix check-script (polyhedrasplit)
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 01 Dec 2020 23:11:51 +0100
+
+yade (2020.01a-12) unstable; urgency=medium
+
+  * [ecff333] Fix compilation against QT_5.15
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 04 Nov 2020 16:28:55 +0100
+
+yade (2020.01a-11) unstable; urgency=medium
+
+  * [4d92517] Disable some tests. (Closes: #972816)
+  * [3cb65c0] Convert patches to gbp pq format
+  * [7812d54] Drop deprecated dependency on gtk2-engines-pixbuf.xi
+              (Closes: #947713)
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 02 Nov 2020 21:41:55 +0100
+
+yade (2020.01a-10) unstable; urgency=medium
+
+  * [a1c3cd6] Refresh patch
+  * [5d67b56] Fix one more FTBFS due to QT5
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 18 Jul 2020 09:25:10 +0200
+
+yade (2020.01a-9) unstable; urgency=medium
+
+  * [9fc78a3] Fix FTBFS due to deprecated QT5 call. (Closes: #964617)
+  * [0bfca14] Apply cme fix dpkg
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 17 Jul 2020 22:01:23 +0200
+
+yade (2020.01a-8) unstable; urgency=medium
+
+  * [3091434] Remove texlive-generic-extra from build-depends. (Closes: #961560)
+  * [114d383] Set compat level 13
+  * [30a1dcf] Install some files in usr/share/doc
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 05 Jun 2020 21:11:47 +0200
+
+yade (2020.01a-7) unstable; urgency=medium
+
+  * [b4691c0] Fix GCC-10 compilation. (Closes: #958006)
+  * [5df87c6] Fix doc generation for newer sphinx. (Closes: #955097)
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 21 Apr 2020 22:51:53 +0200
+
+yade (2020.01a-6) unstable; urgency=medium
+
+  * [170aba5] Fix and enable parallel collision detection
+  * [a84e451] Set Standards-Version to 4.5.0
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 22 Feb 2020 21:25:23 +0100
+
+yade (2020.01a-5) unstable; urgency=medium
+
+  [ Janek Kozicki ]
+  * [454079e] Temporarily disable insertionSortParallel()
+
+  [ Anton Gladky ]
+  * [4f506b3] Disable parallel builds due to Ubuntu-sync-delays because of it
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 25 Jan 2020 21:44:04 +0100
+
+yade (2020.01a-4) unstable; urgency=medium
+
+  * [9152615] Do not build parallel on "all" arch
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 15 Jan 2020 20:47:32 +0100
+
+yade (2020.01a-3) unstable; urgency=medium
+
+  * [1e60d00] Do not run some unreliable tests
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 13 Jan 2020 20:31:58 +0100
+
+yade (2020.01a-2) unstable; urgency=medium
+
+  * Source-only upload
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 13 Jan 2020 18:56:50 +0100
+
+yade (2020.01a-1) unstable; urgency=medium
+
+  * [7c3c753] New upstream version 2020.01a
+  * [38933f9] Refresh patches
+  * [b50855d] Refer to common license file for BSD.
+  * [ae4b2ee] Some more patches cleanup
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 12 Jan 2020 10:01:19 +0100
+
+yade (2019.12~git~0~e74819ea-8) unstable; urgency=medium
+
+  * [7267baf] Do not build parallely on s390x
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 02 Jan 2020 16:49:17 +0100
+
+yade (2019.12~git~0~e74819ea-7) unstable; urgency=medium
+
+  * [648d18f] Fix workaround due to broken ipython3
+  * [1770cf4] Set upstream metadata fields: Bug-Submit, Repository.
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 01 Jan 2020 21:21:51 +0100
+
+yade (2019.12~git~0~e74819ea-6) unstable; urgency=medium
+
+  * [e6ab441] Rename python-yade -> python3-yade. (Closes: #946984)
+  * [1eb721d] One more try to build yade in parallel mode
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 17 Dec 2019 22:17:21 +0100
+
+yade (2019.12~git~0~e74819ea-5) unstable; urgency=medium
+
+  * [e6ab441] Rename python-yade -> python3-yade
+  * [1eb721d] One more try to build yade in parallel mode
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 17 Dec 2019 22:16:58 +0100
+
+yade (2019.12~git~0~e74819ea-4) unstable; urgency=medium
+
+  * [1b686b2] Add python3-future to depends
+  * [09226e4] Sort dependencies
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 12 Dec 2019 16:37:13 +0100
+
+yade (2019.12~git~0~e74819ea-3) unstable; urgency=medium
+
+  * [771cc36] Revert "Build parallel"
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 11 Dec 2019 06:46:11 +0100
+
+yade (2019.12~git~0~e74819ea-2) unstable; urgency=medium
+
+  * [bcecc74] Build less debug symbols on i386 because of FTBFS
+  * [653b86d] Disable checkPolyhedraCrush-test
+  * [5f1d4e2] Ignore quilt dir
+  * [a1d6205] Build parallel
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 10 Dec 2019 20:26:33 +0100
+
+yade (2019.12~git~0~e74819ea-1) unstable; urgency=medium
+
+  [ Anton Gladky ]
+  * Upload into unstable
+
+  [ Joachim Reichel ]
+  * [45453b0] Fix FTFBS with CGAL 5.0. (Closes: #946223)
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 08 Dec 2019 22:21:16 +0100
+
+yade (2019.12~git~0~e74819ea-1~exp5) experimental; urgency=medium
+
+  * [0b1db7f] One more fix for i386
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 07 Dec 2019 23:58:57 +0100
+
+yade (2019.12~git~0~e74819ea-1~exp4) experimental; urgency=medium
+
+  * [39e6dac] Fix FTBFS on arm64
+  * [59c3227] Disable parallel build
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 06 Dec 2019 08:51:16 +0100
+
+yade (2019.12~git~0~e74819ea-1~exp3) experimental; urgency=medium
+
+  * [41716f6] Override dh_dwz
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 05 Dec 2019 17:00:47 +0100
+
+yade (2019.12~git~0~e74819ea-1~exp2) experimental; urgency=medium
+
+  * [4b32d92] Disable checkJCFpm.py test
+  * [7e67a2e] Remove dh_dwz override
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 05 Dec 2019 06:30:10 +0100
+
+yade (2019.12~git~0~e74819ea-1~exp1) experimental; urgency=medium
+
+  * [ee07f9d] Switch to python3. (Closes: #938859)
+  * [e4c0fff] Refresh patch
+  * [9db90d4] Set Stndards-Version to 4.4.1
+  * [648e6a3] Trim trailing whitespace.
+  * [f961d72] Set upstream metadata fields: Repository.
+  * [21d9f4b] Use canonical URL in Vcs-Browser.
+  * [b71d6cb] Remove obsolete fields Name from debian/upstream/metadata.
+  * [dee59f9] Update upstream/metadata
+  * [2c51dcb] Temporarly use python-yade for python3-bindings
+  * [b196fd3] Some tweaks in the d/rules to make package buildable
+  * [62fdca3] Use libsqlite3-dev instead of libsqlite-dev
+  * [f434690] Set upstream metadata fields: Repository-Browse.
+  * [6b86884] Add dh-exec to BD
+  * [a539492] New upstream version 2019.12~git~0~e74819ea
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 04 Dec 2019 23:08:05 +0100
+
+yade (2019.01a-3) unstable; urgency=medium
+
+  * [b94a2c7] Remove restriction version on libeigen3-dev
+  * [118eccb] Add texlive-plain-generic as alternative to texlive-generic-extra
+              (Closes: #933591)
+  * [02dc167] Trim trailing whitespace.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 24 Aug 2019 17:26:37 +0200
+
+yade (2019.01a-2) unstable; urgency=medium
+
+  * [67c1798] Let metis. openblas and suiteparse be installed on all archs
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 30 Jan 2019 19:41:45 +0100
+
+yade (2019.01a-1) unstable; urgency=medium
+
+  * [6b3c3c1] New upstream version 2019.01a
+  * [34e8a66] Refresh patches
+  * [337fccf] Remove privacy breach
+  * [31d5dc1] Remove deprecated x-python-version
+  * [1584879] Fix typo
+  * [195bb4f] Set Standards-Version to 4.3.0
+  * [8401a0b] Build yade only for amd64 arm64 i386 ppc64el s390x
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 29 Jan 2019 20:30:49 +0100
+
+yade (2018.02b-6) unstable; urgency=medium
+
+  * [3251aa0] Reenable cgal-build
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 07 Jan 2019 20:22:40 +0100
+
+yade (2018.02b-5) unstable; urgency=medium
+
+  * [ef8bc89] Disable cgal functionality. (Closes: #911685)
+  * [75b0b55] Set Standards-Version to 4.2.1
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 05 Dec 2018 21:39:37 +0100
+
+yade (2018.02b-4) unstable; urgency=medium
+
+  * [7e20ce4] Update d/copyright
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 23 Jun 2018 09:29:43 +0200
+
+yade (2018.02b-3) unstable; urgency=medium
+
+  * [ed63b0d] Set Arch: any for python-yade
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 19 Jun 2018 22:20:31 +0200
+
+yade (2018.02b-2) unstable; urgency=medium
+
+  [ Adrian Bunk ]
+  * [4cf8d3c] Drop debug info for mips/mipsel. (Closes: #890237)
+
+  [ Anton Gladky ]
+  * [b87e33b] Use tar.gz instead of failing bz2 in doctest. (Closes: #900457)
+  * [37a6e5b] Add tilda to debhelper version number
+  * [20d3a2e] Set Standards-Version to 4.1.4
+  * [ec2b9f9] Fix compilation with the newer sphinx.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 09 Jun 2018 23:16:40 +0200
+
+yade (2018.02b-1) unstable; urgency=medium
+
+  [ Anton Gladky ]
+  * [5a1056a] New upstream version 2018.02b
+  * [fc27b02] Remove patch applied by upstream
+  * [366aa18] Reenable CGAL-feature
+
+  [ Adrian Bunk ]
+  * [a5eddfb] Fix compilation on weak archs. (Closes: #890237)
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 20 Feb 2018 20:06:30 +0100
+
+yade (2018.02a-2) unstable; urgency=medium
+
+  * [299915c] Disable parallel build. (Closes: #890054)
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 10 Feb 2018 17:06:03 +0100
+
+yade (2018.02a-1) unstable; urgency=medium
+
+  * [8c51977] Add libgmp-dev as a build-dependency
+  * [ca816f3] New upstream version 2018.02a
+  * [4e12967] Refresh patches, remove applied by upstream
+  * [862d474] Fix unit-tests
+  * [5ef654a] Set Standards-Version to 4.1.3
+  * [f6c9349] Remove testsuite-field in d/control
+  * [f7a532e] Update VCS-field
+  * [f41e35b] Update homepage
+  * [13e4b8b] Enable parallel-builds. (Closes: #846919)
+  * [ac653a1] Set compat-level 11
+  * [e128978] Use arch-any not the explicit list of archs
+  * [1066da4] Remove old patch
+  * [98da1df] Update yade-doc.doc-base
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 08 Feb 2018 19:16:45 +0100
+
+yade (2017.01a-11) unstable; urgency=medium
+
+  * [92d9c5e] Do not enable LINSOLV if CGAL not found. (Closes: #880792)
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 05 Nov 2017 11:09:58 +0100
+
+yade (2017.01a-10) unstable; urgency=medium
+
+  * [246d427] Remove libcgal-dev from BD temporarly not to block CGAL
+              migration. (Closes: #876524)
+  * [beb17f7] Set Standards-Version: 4.1.1
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 03 Nov 2017 21:45:35 +0100
+
+yade (2017.01a-9) unstable; urgency=medium
+
+  * [fef2967] Drop file-duplocates in python-yade. (Closes: #868552)
+  * [08aa6fe] List all supported archs in d/control. (Closes: #860854)
+  * [9804642] Replace obsolete python-imaging by python-pil. (Closes: #866501)
+  * [7852bd4] Apply cme fix dpkg. Migrate to Standards-Version 4.0.0.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 31 Jul 2017 00:34:52 +0200
+
+yade (2017.01a-8) unstable; urgency=medium
+
+  [ Bruno Chareyre ]
+  * [be08409] Critical bugfix for periodic boundaries.
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 14 Apr 2017 12:43:59 +0200
+
+yade (2017.01a-7) unstable; urgency=medium
+
+  * [31387da] Add missing dependency on python-pyqt5.qtsvg in python-yade.
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 28 Feb 2017 22:03:24 +0100
+
+yade (2017.01a-6) unstable; urgency=medium
+
+  * [2366d84] Add missing dependency on python-pyqt5.qtsvg.
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 28 Feb 2017 21:53:02 +0100
+
+yade (2017.01a-5) unstable; urgency=medium
+
+  * [eb193dd] Revert patch applied by last upload.
+  * [11efabc] Stop generating of PDF file. (Closes: #856218)
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 27 Feb 2017 23:20:27 +0100
+
+yade (2017.01a-4) unstable; urgency=medium
+
+  * [e248862] Fix FTBFS during documentation build. (Closes: #856218)
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 26 Feb 2017 20:21:22 +0100
+
+yade (2017.01a-3) unstable; urgency=medium
+
+  * [14120f5] Initialize GUI in IPython 5. (Closes: #856175)
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 26 Feb 2017 00:47:26 +0100
+
+yade (2017.01a-2) unstable; urgency=medium
+
+  * [1a804bb] Disable parallel build.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 23 Jan 2017 17:36:15 +0100
+
+yade (2017.01a-1) unstable; urgency=medium
+
+  * [4b5edc3] New upstream version 2017.01a
+  * [09577db] Update/Remove patches.
+  * [d763fbf] Set compat level to 10.
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 19 Jan 2017 22:48:54 +0100
+
+yade (2016.06a-7) unstable; urgency=medium
+
+  * [a7a08a9] Fix ipython5 config module.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 10 Dec 2016 21:18:05 +0100
+
+yade (2016.06a-6) unstable; urgency=medium
+
+  * [4ab8a46] Fix FTBFS against booost_1.62. (Closes: #845742)
+  * [e3afe8b] Apply cme fix dpkg.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 03 Dec 2016 12:24:48 +0100
+
+yade (2016.06a-5) unstable; urgency=medium
+
+  [ Tobias Hansen ]
+  * Include ipython_directive.py from IPython 5.1.0 to fix build
+    with IPython 5. (Closes: #840527)
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 29 Oct 2016 23:25:13 +0200
+
+yade (2016.06a-4) unstable; urgency=medium
+
+  * [c982cf0] Add python-pyqt5.qtwebkit to dependencies.
+  * [9525172] Fix crash during testing.
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 24 Aug 2016 20:14:20 +0200
+
+yade (2016.06a-3) unstable; urgency=medium
+
+  * [a216214] Disable check-script temporarily.
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 26 Jul 2016 19:42:51 +0200
+
+yade (2016.06a-2) unstable; urgency=medium
+
+  * [0713e25] Add texlive-generic-extra to build-depends. (Closes: #829352)
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 25 Jul 2016 21:17:53 +0200
+
+yade (2016.06a-1) unstable; urgency=medium
+
+  * [a70d0b6] Refresh, update patches.
+  * [6bff5bc] Imported Upstream version 2016.06a
+  * [4916356] Apply cme fix dpkg.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 19 Jun 2016 17:23:23 +0200
+
+yade (1.20.0-10) unstable; urgency=medium
+
+  [ Anton Gladky ]
+  * [bc45d12] Remove some machine-specific items in documentation.
+
+  [ Graham Inggs ]
+  * [57d5a6d] Fix glibc_2.23 compilation. (Closes: #820450)
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 02 Jun 2016 22:56:10 +0200
+
+yade (1.20.0-9) unstable; urgency=medium
+
+  [ Anton Gladky ]
+  * [2a9a603] Update dependencies for libqglviewer-dev-qt5.
+
+  [ Graham Inggs ]
+  * [a68444e] Fix FTBFS with glibc 2.23. (Closes: #820450)
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 20 May 2016 19:49:42 +0200
+
+yade (1.20.0-8) unstable; urgency=medium
+
+  * [1960e9d] Add allow-stderr to autopkgtests.
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 18 Mar 2016 06:31:45 +0100
+
+yade (1.20.0-7) unstable; urgency=high
+
+  * [5fb4ec8] Fix warning in newer matplotlib.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 14 Feb 2016 11:38:28 +0100
+
+yade (1.20.0-6) unstable; urgency=medium
+
+  * [87574cb] Disable parallel builds. (Closes: #805032)
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 13 Nov 2015 21:06:18 +0100
+
+yade (1.20.0-5) unstable; urgency=medium
+
+  * [0a7070e] Do not use parallel build on arm64
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 26 Oct 2015 17:58:12 +0100
+
+yade (1.20.0-4) unstable; urgency=medium
+
+  * [e6cacc9] Remove amd64 from unsupported archs.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 25 Oct 2015 14:23:43 +0100
+
+yade (1.20.0-3) unstable; urgency=medium
+
+  * [eba76bf] Remove menu-file.
+  * [c490032] Drop unused architectures. (Closes: #793833)
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 25 Oct 2015 14:18:38 +0100
+
+yade (1.20.0-2) unstable; urgency=medium
+
+  * [de077fc] Replace INSTALL_PREFIX by CMAKE_INSTALL_PREFIX.
+  * [9d7b263] Do not require libqglviewer-dev on armel and armhf.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 11 Oct 2015 09:55:07 +0200
+
+yade (1.20.0-1) unstable; urgency=medium
+
+  * [07a04e8] Imported Upstream version 1.20.0
+  * [e1fae74] Migrate to Qt5
+  * [12cc97b] Enable SPH.
+  * [fe64fdd] Remove patches applied by upstream.
+  * [b8178ce] Remove python-argparse from build-depends.
+  * [d741b20] Enable parallel build.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 10 Oct 2015 12:49:01 +0200
+
+yade (1.14.0-7) unstable; urgency=medium
+
+  * [66b209d] Do not install qt on armel and armhf.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 13 Sep 2015 13:53:41 +0200
+
+yade (1.14.0-6) unstable; urgency=medium
+
+  * [e147975] Build on all possible platforms.
+  * [4296fd1] Drop old Breaks/Replaces.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 12 Sep 2015 21:13:33 +0200
+
+yade (1.14.0-5) unstable; urgency=medium
+
+  * [170f338] Drop vtk support on armel and armhf.
+  * [bed9ecf] Fix compilation without GUI on armel and armhf.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 19 Jul 2015 21:45:10 +0300
+
+yade (1.14.0-4) unstable; urgency=medium
+
+  * [c820752] Drop GUI-option for armel and armhf.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 18 Jul 2015 08:02:35 +0300
+
+yade (1.14.0-3) unstable; urgency=medium
+
+  * [dcc15ea] Fix compilation against new libqglviewer. (Closes: #790627)
+  * [2a34be9] Update d/copyright.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 04 Jul 2015 14:09:45 +0200
+
+yade (1.14.0-2) unstable; urgency=medium
+
+  * [48899db] Add python-sip to BD.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 15 Jun 2015 23:27:06 +0200
+
+yade (1.14.0-1) unstable; urgency=medium
+
+  * [cef3691] Imported Upstream version 1.14.0
+  * [0f5f82a] Remove applied patch.
+  * [ea3deda] Update d/copyright.
+  * [ee055e2] Apply cme fix dpkg-control.
+  * [d00d812] Remove FindVTK from cmake. (Closes: #788372)
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 12 Jun 2015 18:42:25 +0200
+
+yade (1.12.0-3~exp1) experimental; urgency=medium
+
+  [ Anton Gladky ]
+  * [5ac2a25] Let yade be built only on specific archs.
+
+  [ Dejan Latinovic ]
+  * [ac47ddb] Enable yade on on mips/mipsel. (Closes: #777065)
+
+  [ Anton Gladky ]
+  * [fef7397] Fix compilation with  GCC-5. (Closes: #778190).
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 17 Feb 2015 00:05:40 +0100
+
+yade (1.12.0-2) unstable; urgency=medium
+
+  * [24108c8] Use on i386 and kfreebsd-i386 compiler flags to reduce
+              RAM iconsumption during compilation.
+
+ -- Anton Gladky <gladk@debian.org>  Fri, 24 Oct 2014 18:08:27 +0200
+
+yade (1.12.0-1) unstable; urgency=medium
+
+  * [3bba065] Imported Upstream version 1.12.0. (Closes: #763259)
+  * [1ac4c00] Remove patch applied by upstream.
+  * [0b5f802] Set Standards-Version: 3.9.6. No changes.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 20 Oct 2014 21:31:37 +0200
+
+yade (1.11.1-3) unstable; urgency=medium
+
+  * [dbf4ef8] Drop parallel builds.
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 04 Sep 2014 20:34:20 +0200
+
+yade (1.11.1-2) unstable; urgency=medium
+
+  * [6a919b1] Fix FTBFS on 32-bit platforms.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 01 Sep 2014 17:46:56 +0200
+
+yade (1.11.1-1) unstable; urgency=medium
+
+  * [dcde06c] Imported Upstream version 1.11.1
+  * [bd5a05a] Remove patches, applied by upstream.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 30 Aug 2014 22:22:26 +0200
+
+yade (1.11.0-2) unstable; urgency=medium
+
+  * [85ceffc] Fix autotest DEM-PFV. (Closes: #757576)
+  * [672fa7a] Let build-indep target be built.
+  * [ca274c2] Apply upstream fix: segfault on removing clumps.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 11 Aug 2014 22:23:05 +0200
+
+yade (1.11.0-1) unstable; urgency=medium
+
+  * [a0600ae] Imported Upstream version 1.11.0
+  * [a3055e0] Do not use parallel build on kfreebsd-amd64 and s390x.
+  * [f86b405] Remove applied patches.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 04 Aug 2014 19:34:58 +0200
+
+yade (1.10.0-3) unstable; urgency=medium
+
+  * [d899560] Revert to "Architecture: any".
+  * [d87d238] Add --parallel option.
+  * [2babdea] Fix warning in stderr, which broke autopkgtest.
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 26 Jul 2014 09:43:13 +0200
+
+yade (1.10.0-2) unstable; urgency=medium
+
+  * [9d3fe99] Fix autopkgtests.
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 22 Jul 2014 22:48:05 +0200
+
+yade (1.10.0-1) unstable; urgency=medium
+
+  * [431abb8] Imported Upstream version 1.10.0 (Closes: #750318)
+  * [3552a3e] Set minimal vtk6 version 6.1.0+dfsg-8.
+  * [cd915f6] Set minimal eigen3 version 3.2.1-2.
+  * [8e02049] Add autopkgtest-field to control.
+  * [38389f8] Remove patches aplied by upstream.
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 25 Jun 2014 20:43:49 +0200
+
+yade (1.07.0-4) unstable; urgency=medium
+
+  * [053bf6f] Remove some build-depends, which were added to VTK6.
+  * [a560cb6] Remove --parallel option. (Closes: #741827)
+  * [1d1f0d5] Build yade only on amd64 hurd-i386 i386
+              kfreebsd-amd64 kfreebsd-i386 powerpc s390x sparc ppc64 x32.
+  * [fa8ee56] Add autotest.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 30 Mar 2014 19:05:22 +0200
+
+yade (1.07.0-3) unstable; urgency=medium
+
+  * [c628d07] Update Depends for VTK6.
+  * [2d27ac8] Fix compilation against new libqglviewer.
+  * [3821427] Update date in debian/copyright.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 16 Mar 2014 14:55:57 +0100
+
+yade (1.07.0-2) unstable; urgency=medium
+
+  * [1de8256] Increase number of steps in checkWeight.py.
+
+ -- Anton Gladky <gladk@debian.org>  Sun, 19 Jan 2014 19:59:34 +0100
+
+yade (1.07.0-1) unstable; urgency=medium
+
+  * [d42c7de] Imported Upstream version 1.07.0
+  * [a421b10] Remove patch, applied by upstream.
+  * [d151f88] Set Standards-Version: 3.9.5. No changes.
+  * [a9616c6] Add upstream file.
+  * [c078bb4] Inject additional parameters for weak archs.
+              Thanks to Roland Stigge <stigge@antcom.de>. (Closes: #733152)
+  * [21a2430] Fix version definition for IPython>1.0.0.
+  * [8204093] Remove google-scripts from documentation.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 13 Jan 2014 20:13:14 +0100
+
+yade (1.05.0-2) unstable; urgency=low
+
+  * [cf3f8d9] Pass -ftrack-macro-expansion=0 only if gcc>=4.8. (Closes: #726009)
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 30 Oct 2013 20:56:33 +0100
+
+yade (1.05.0-1) unstable; urgency=low
+
+  * [8448883] Imported Upstream version 1.05.0
+  * [82b3047] Do not use clang explicitly.
+  * [2f28ccc] Remove -ftrack-macro-expansion=0 option.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 28 Oct 2013 20:55:21 +0100
+
+yade (1.00.0-5) unstable; urgency=low
+
+  * [b4d2aa3] Use clang on archs, where gcc fails. (Closes: #726009)
+
+ -- Anton Gladky <gladk@debian.org>  Sat, 26 Oct 2013 22:25:21 +0200
+
+yade (1.00.0-4) unstable; urgency=low
+
+  * [91cd9f0] Set explicitly gcc-4.8 as the compiler for some archs.
+              Thanks to  Peter Green <plugwash@p10link.net>. (Closes: #726009)
+
+ -- Anton Gladky <gladk@debian.org>  Thu, 24 Oct 2013 18:27:26 +0200
+
+yade (1.00.0-3) unstable; urgency=low
+
+  * [d386d37] Add libbz2-dev and zlib1g-dev to BD.
+  * [dd8d977] Disable Release-Mode in Cmake, pass -ftrack-macro-expansion=0 to
+              reduce RAM-consumption during compilation. (Closes: #726009)
+  * [1942de7] Ignore quilt dir.
+  * [de26aa7] Unapply patches after build.
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 15 Oct 2013 19:32:33 +0200
+
+yade (1.00.0-2) unstable; urgency=low
+
+  * [2b4cc97] Disable parallel build (fails due to RAM consumption).
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 01 Oct 2013 19:14:48 +0200
+
+yade (1.00.0-1) unstable; urgency=low
+
+  * [bbab763] Update debian/watch. Take version number from github.
+  * [1c35234] Remove binutils-gold. (Closes: #722544)
+  * [eb29103] Add BD for new PFV-feature.
+  * [27ffe4a] Update break/replaces for older yade versions.
+  * [6b2b68f] Remove mencoder from recommends.
+  * [fe54741] Add system-component of boost to be linked.
+  * [39b346a] Override lintian error (seems, false-positive).
+  * [9edd741] Use canonical VCS-field.
+  * [b3f639e] Imported Upstream version 1.00.0
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 30 Sep 2013 19:20:42 +0200
+
+yade (0.97.0-4) unstable; urgency=low
+
+  * [39d5e4a] Use binutils-gold only in amd64 and i386. (Closes: #710313)
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Wed, 29 May 2013 21:40:38 +0200
+
+yade (0.97.0-3) unstable; urgency=low
+
+  * [978a093] Add cgal to BD on ia64.
+  * [cd9763a] Add Breaks/Replaces into libyade.
+  * Update changelog for the previous upload (missed entries).
+
+ -- Anton Gladky <gladk@debian.org>  Wed, 29 May 2013 19:48:00 +0200
+
+yade (0.97.0-2) unstable; urgency=low
+
+  * [49e2dbb] Use parallel build only on amd64 and i386.
+  * [e061d31] Do not use python-minieigen on s390 (no binary).
+  * [066e0c2] Ship libraries in libyade-package.
+              Add python-bindings. (Closes: #708469)
+  * [6eb310f] Add texlive-fonts-recommended to BD.
+
+ -- Anton Gladky <gladk@debian.org>  Mon, 20 May 2013 20:43:33 +0200
+
+yade (0.97.0-1) unstable; urgency=low
+
+  * [5cf366c] Imported Upstream version 0.97.0. (Closes: #701374).
+  * [79c690d] Use packaged versions of python-minieigen and pygts instead of
+              embedded copies.
+  * [a391f24] Use help2man to generate manpages.
+  * [84b1a93] Enable parallel build on some archs. (Closes: #704046)
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 14 May 2013 22:23:41 +0200
+
+yade (0.95.0-1~exp1) experimental; urgency=low
+
+  * [2184d2f] Imported Upstream version 0.95.0
+  * [3823f78] Add python-argparse into Depends.
+  * [34afa31] Update Standards-Version to 3.9.4. No changes.
+  * [a2eb063] Update copyright file.
+  * [a97d638] Use wrap-and-sort for formatting.
+
+ -- Anton Gladky <gladk@debian.org>  Tue, 05 Mar 2013 21:05:08 +0100
+
+yade (0.90.3-1~exp1) experimental; urgency=low
+
+  * [a222e2e] Remove obsolete DM-Upload-Allowed flag.
+  * [8a42102] Imported Upstream version 0.90.3
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Tue, 04 Dec 2012 19:31:12 +0100
+
+yade (0.90.2-1~exp1) experimental; urgency=low
+
+  * [1dd2feb] Imported Upstream version 0.90.2
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Mon, 26 Nov 2012 18:52:48 +0100
+
+yade (0.90.1-2) experimental; urgency=low
+
+  * [2c57531] Do not use --parallel option to escape memory exhausting.
+  * [3435efb] Update watch-file.
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Mon, 19 Nov 2012 18:06:23 +0100
+
+yade (0.90.1-1) experimental; urgency=low
+
+  * [5965efa] Use cmake for git-version of yade.
+  * [6f5e8d7] Add missing epoch in g++ version. Thanks to Jakub Wilk.
+              http://lists.debian.org/debian-devel/2012/07/msg00086.html.
+  * [2a363fd] Remove old patches.
+  * [7c7d6ce] Use compat-level 9.
+  * [de60ab3] Use multiarch.
+  * [d327303] Imported Upstream version 0.90.1
+  * [e7bdd21] Add lintian-overrides for rpath-issue of openmpi.
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Sun, 18 Nov 2012 21:31:06 +0100
+
+yade (0.80.1-2) unstable; urgency=low
+
+  * [9ddf3c4] Handle ipython 0.13. (Closes: #680285)
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Wed, 04 Jul 2012 21:41:22 +0200
+
+yade (0.80.1-1) unstable; urgency=low
+
+  * [64a8de3] Imported Upstream version 0.80.1
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Tue, 29 May 2012 23:20:12 +0200
+
+yade (0.80.0-3) unstable; urgency=low
+
+  * [fd11426] Add minimal version for dpkg-dev (>= 1.16.2).
+  * [2259a3f] Fix FTBFS against gcc-4.7. (Closes: #672126)
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Wed, 09 May 2012 20:34:48 +0200
+
+yade (0.80.0-2) unstable; urgency=low
+
+  * [17ac3c8] Recover fix_FTBFS_on_KFreeBSD.patch.
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Sat, 05 May 2012 06:57:35 +0200
+
+yade (0.80.0-1) unstable; urgency=low
+
+  * [714d23e] Enable cgal-feature.
+  * [f5fe5b4] Remove patches, applied by upstream.
+  * [2d168c8] Use compat-level 8.
+  * [0b404ca] Imported Upstream version 0.80.0
+  * [19b9ce5] Re-enable PDF-generation. (Closes: #651220)
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Wed, 02 May 2012 23:22:19 +0200
+
+yade (0.70.0-5) unstable; urgency=low
+
+  * [db2c9f6] Add gtk2-engines-pixbuf to depends section.
+  * [a563b30] Use Standards-Version: 3.9.3. No changes.
+  * [4454d5d] Small fixes due to ipython 0.12 migration.
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Tue, 03 Apr 2012 21:43:00 +0200
+
+yade (0.70.0-4) unstable; urgency=high
+
+  * [ef20192] fix FTBFS with boost >=1.47. (Closes: #653817)
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Wed, 04 Jan 2012 19:55:06 +0100
+
+yade (0.70.0-3) unstable; urgency=low
+
+  * [b9c8f44] Fix compilation with vtk-5.8.
+  * [96fcd70] Update description in control-file.
+  * [6c19037] Provide ipython-0.11 compatibility. (Closes: #636475)
+  * [22291a8] Disable PDF-creation (does not build for the moment).
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Fri, 25 Nov 2011 20:34:24 +0100
+
+yade (0.70.0-2) unstable; urgency=low
+
+  * [8466b41] Remove yade-dbg binary, it is too large (about 200mb)
+              and is not mandatory.
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Sat, 12 Nov 2011 16:52:57 +0100
+
+yade (0.70.0-1) unstable; urgency=low
+
+  * [989698e] Imported Upstream version 0.70.0
+  * [0e11326] Replace underscore.js by the link on packaged version
+  * [8c9464e] Add more tests to dh_auto_test (--check option).
+  * [91e1e53] Add some more names to copyright-file.
+  * [5a86e34] Provide a tight dependency for python-version.
+    (Closes: #642938)
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Wed, 26 Oct 2011 00:30:10 +0200
+
+yade (0.60.3-2) unstable; urgency=low
+
+  * [67adc6c] Fix FTBFS on powerpc (Closes: #632503)
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Sat, 02 Jul 2011 15:08:46 +0200
+
+yade (0.60.3-1) unstable; urgency=low
+
+  * [1612906] Reduce the number of binary-packages twice.
+  * [d8e097e] Imported Upstream version 0.60.3
+  * [f5a454a] Delete patches, applied by upstream in 0.60.3 release.
+  * [d29e6e4] Enable dbg-mode during man-genaration.
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Sun, 26 Jun 2011 21:32:16 +0200
+
+yade (0.60.2-5) unstable; urgency=low
+
+  * [ed48b2f] Fix FTBFS on kFreeBSD and other platforms,
+      where was an error during checking qglviwer (Closes: #628376)
+  * [608c086] Fix generation manpage error on powerpc and sparc.
+  * [093fe7b] Fix compilation with eigen3.
+  * [4d7707d] Use eigen3 instead of eigen2.
+  * [f34dd24] Test at first debug-version, then optimized to find out the
+    reason of problem before crash.
+  * [3a76893] Add CXXFLAGS from dpkg-buildflag.
+  * [321dced] Generate manpages in debug-mode.
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Fri, 10 Jun 2011 21:54:25 +0200
+
+yade (0.60.2-4) unstable; urgency=low
+
+  * [d1acf0c] Prevent building docs in binary-arch mode.
+  * [d1acf0c] Reduce RAM consumption to minimal during build process.
+  * [22b92eb] Output an information about available memory and CPU before
+      building.
+  * [2adcf6a] Let binutils-gold to be used only on amd64 and i386 platforms.
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Tue, 24 May 2011 20:11:58 +0200
+
+yade (0.60.2-3) unstable; urgency=low
+
+  * [9fb84aa] Hopefully fix FTBFS on most of
+      platforms due to MPLCONFIGDIR (Closes: #626722)
+  * [c58a0fa] Update debian/rules, dh7.
+  * [0c163b1] Update to Standards-Version: 3.9.2 (no changes).
+  * [cc8714c] Raise up python-sphinx required version to 1.0.5.
+  * [b045d3b] Move mencoder from "Depends" to "Recommends" to make
+      yade installable on non-graphic systems.
+  * [94ebfd7] Fix in postinst for correct alias of man-pages.
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Wed, 11 May 2011 19:52:26 +0200
+
+yade (0.60.2-2) unstable; urgency=low
+
+  * [6ee4fb7] Remove binutils-gold (only on platforms, where it is
+      not available) and clang from BD (Closes: #623427)
+  * [353bf83] Change chunkSize=3 to decrease RAM consumption during build.
+  * [de16760] Change long list of commands in binary-arch to _dh binary-arch_
+  * [fa12839] Enable binutils-gold on platforms, where it is available.
+  * [5d2ac1e] Increase debhelper version number for BD to 7.0.50.
+  * [abd1f59] Add dh binary-indep.
+  * [fccb8c8] Fix crash, when force applied to non existing body.
+  * [70d3b9e] Added syncSizesOfContainers to forceContainer.
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Fri, 22 Apr 2011 14:01:08 +0200
+
+yade (0.60.2-1) unstable; urgency=low
+
+  * New upstream release 0.60.2
+  * Fixed memory leak in InsertionSortCollider (LP: #721107)
+  * Fixed crash after adding particles in parallel mode (LP: #724396)
+  * Fixed problem with linking libraries on Natty (LP: #707966)
+  * vtkNetCDF was deleted from libs due to absence in libvtk5.6-dev
+  * jquery.js in documentation is now symlink to a packaged jquery,
+      if it is available.
+  * openmp-mode is turned on in build options.
+  * liblog4cxx9-dev was deleted from dependencies, as
+      "liblog4cxx9-dev | liblog4cxx10-dev" is not working on most of
+      platforms. liblog4cxx10-dev is ignored in this case.
+      http://lists.debian.org/debian-devel/2011/02/msg00738.html
+  * migrated from expetimental to unstable, because python-sphinx
+      1.0.7 is already in sid as well.
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Wed, 13 Apr 2011 00:32:18 +0100
+
+yade (0.60-1) experimental; urgency=low
+
+  * Initial import (Closes: #608663)
+
+ -- Anton Gladky <gladky.anton@gmail.com>  Wed, 19 Jan 2011 17:05:02 +0000

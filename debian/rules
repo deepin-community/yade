@@ -1,4 +1,144 @@
 #!/usr/bin/make -f
 
+include /usr/share/dpkg/architecture.mk
+
+DOUBLE_SUFFIX=double
+LONGDOUBLE_SUFFIX=longdouble
+FLOAT128_SUFFIX=float128
+MPFR150_SUFFIX=mpfr150
+
+BUILDDIR = $(CURDIR)/debian/build
+tmpInstall = $(CURDIR)/debian/tmp
+tmpDirMatplotLib = $(CURDIR)/debian/matplotlib
+
+# do not build i386 parallely
+ifneq (,$(filter $(DEB_HOST_ARCH), i386 s390x all))
+  parallelBuild=--no-parallel
+endif
+
+# We disable parallel builds on all platforms by now
+# Ubuntu has problems with it and it causes sync-delays
+parallelBuild=--no-parallel
+
 %:
-	dh $@
+	dh $@ --builddirectory=$(BUILDDIR) --with python3 $(parallelBuild)
+
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--no-as-needed,-no-keep-memory
+
+# no debug info to avoid running
+# out of address space when linking
+export DEB_CXXFLAGS_MAINT_APPEND += -g0
+
+# Check, whether Build-Depends-Indep are installed
+BUILD_DOC=$(shell dpkg -s python3-sphinx | grep -q "^Status:.* installed$$" && echo yes)
+
+LD_LIBRARY_PATH_DOUBLE =  $(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX):$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX)/py/gts:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX)/py/yade:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(DOUBLE_SUFFIX)/py/yade/qt:$(LD_LIBRARY_PATH)
+LD_LIBRARY_PATH_LONGDOUBLE =  $(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX):$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX)/py/gts:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX)/py/yade:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(LONGDOUBLE_SUFFIX)/py/yade/qt:$(LD_LIBRARY_PATH)
+LD_LIBRARY_PATH_FLOAT128 =  $(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(FLOAT128_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(FLOAT128_SUFFIX):$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(FLOAT128_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(FLOAT128_SUFFIX)/py/gts:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(FLOAT128_SUFFIX)/py/yade:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(FLOAT128_SUFFIX)/py/yade/qt:$(LD_LIBRARY_PATH)
+LD_LIBRARY_PATH_MPFR150 =  $(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(MPFR150_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(MPFR150_SUFFIX):$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(MPFR150_SUFFIX)/py:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(MPFR150_SUFFIX)/py/gts:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(MPFR150_SUFFIX)/py/yade:$(tmpInstall)/usr/lib/$(DEB_HOST_MULTIARCH)/yade-$(MPFR150_SUFFIX)/py/yade/qt:$(LD_LIBRARY_PATH)
+
+export MPLCONFIGDIR := $(tmpDirMatplotLib)
+export HOME := $(tmpDirMatplotLib)
+export DEB_HOST_MULTIARCH := $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+export YADE_PREFIX := $(tmpInstall)/usr
+
+extra_flags += \
+-DruntimePREFIX="/usr" \
+-DCMAKE_INSTALL_PREFIX="/usr" \
+-DLIBRARY_OUTPUT_PATH=lib/$(DEB_HOST_MULTIARCH) \
+-DENABLE_SPH=OFF \
+-DENABLE_MPFR=ON \
+-DPYTHON_VERSION=3
+
+# Do not use real_hp on arm64 and s390z.
+# It fails because quadmath.h cannot be found. Can be checked with a newer boost (>1.74)
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(extra_flags) -B$(BUILDDIR)-$(DOUBLE_SUFFIX) -DSUFFIX=-$(DOUBLE_SUFFIX) -DREAL_DECIMAL_PLACES=15
+ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el)) # Disable longdouble on ppc64el due to crash
+	dh_auto_configure -- $(extra_flags) -B$(BUILDDIR)-$(LONGDOUBLE_SUFFIX) -DSUFFIX=-$(LONGDOUBLE_SUFFIX) -DREAL_DECIMAL_PLACES=18
+endif
+ifneq (,$(filter $(DEB_HOST_ARCH), amd64 i386))
+	dh_auto_configure -- $(extra_flags) -B$(BUILDDIR)-$(FLOAT128_SUFFIX) -DSUFFIX=-$(FLOAT128_SUFFIX) -DREAL_DECIMAL_PLACES=33
+endif
+	dh_auto_configure -- $(extra_flags) -B$(BUILDDIR)-$(MPFR150_SUFFIX) -DSUFFIX=-$(MPFR150_SUFFIX) -DREAL_DECIMAL_PLACES=150
+	mkdir -p $(tmpDirMatplotLib)
+	mkdir -p $(tmpInstall)
+	#Output an information about available memory and CPU
+	-cat /proc/meminfo
+	-cat /proc/cpuinfo
+
+override_dh_auto_build:
+	dh_auto_build -B$(BUILDDIR)-$(DOUBLE_SUFFIX)
+ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el))
+	dh_auto_build -B$(BUILDDIR)-$(LONGDOUBLE_SUFFIX)
+endif
+ifneq (,$(filter $(DEB_HOST_ARCH), amd64 i386))
+	dh_auto_build -B$(BUILDDIR)-$(FLOAT128_SUFFIX)
+endif
+	dh_auto_build -B$(BUILDDIR)-$(MPFR150_SUFFIX)
+
+override_dh_auto_install:
+	dh_auto_install -B$(BUILDDIR)-$(DOUBLE_SUFFIX)
+ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el))
+	dh_auto_install -B$(BUILDDIR)-$(LONGDOUBLE_SUFFIX)
+endif
+ifneq (,$(filter $(DEB_HOST_ARCH), amd64 i386))
+	dh_auto_install -B$(BUILDDIR)-$(FLOAT128_SUFFIX)
+endif
+	dh_auto_install -B$(BUILDDIR)-$(MPFR150_SUFFIX)
+	# generate manpages
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_DOUBLE) help2man $(tmpInstall)/usr/bin/yade-double > yade.1
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_DOUBLE) help2man $(tmpInstall)/usr/bin/yade-double-batch > yade-batch.1
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_DOUBLE) $(tmpInstall)/usr/bin/yade-$(DOUBLE_SUFFIX) --test
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_DOUBLE) $(tmpInstall)/usr/bin/yade-$(DOUBLE_SUFFIX) --check
+ifeq (,$(filter $(DEB_HOST_ARCH), ppc64el))
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_LONGDOUBLE) $(tmpInstall)/usr/bin/yade-$(LONGDOUBLE_SUFFIX) --test
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_LONGDOUBLE) $(tmpInstall)/usr/bin/yade-$(LONGDOUBLE_SUFFIX) --check
+endif
+ifneq (,$(filter $(DEB_HOST_ARCH), amd64 i386))
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_FLOAT128) $(tmpInstall)/usr/bin/yade-$(FLOAT128_SUFFIX) --test
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_FLOAT128) $(tmpInstall)/usr/bin/yade-$(FLOAT128_SUFFIX) --check
+endif
+ifeq (,$(filter $(DEB_HOST_ARCH), i386))
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_MPFR150) $(tmpInstall)/usr/bin/yade-$(MPFR150_SUFFIX) --test
+	LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_MPFR150) $(tmpInstall)/usr/bin/yade-$(MPFR150_SUFFIX) --check
+endif
+	dh_numpy3
+ifeq ($(BUILD_DOC), yes)
+	#Generate docs
+	cd $(CURDIR)/doc/sphinx && LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_DOUBLE) PYTHONPATH=. $(tmpInstall)/usr/bin/yade-$(DOUBLE_SUFFIX) yadeSphinx.py html && LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_DOUBLE) PYTHONPATH=. $(tmpInstall)/usr/bin/yade-$(DOUBLE_SUFFIX) yadeSphinx.py latex && LD_LIBRARY_PATH=$(LD_LIBRARY_PATH_DOUBLE) PYTHONPATH=. $(tmpInstall)/usr/bin/yade-$(DOUBLE_SUFFIX) yadeSphinx.py workarounds && cd _build/latex && xelatex Yade.tex && xelatex Yade.tex && xelatex Yade.tex
+	cd $(CURDIR)/doc/sphinx/_build/html && find . -type f -print0 | xargs -0 sed -i 's/https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/mathjax\/2\.7\.5\/latest.js/\/usr\/share\/javascript\/mathjax\/MathJax.js\//g'
+	cd $(CURDIR)/doc/sphinx/_build/html && find . -type f -print0 | xargs -0 sed -i 's/https:\/\/www\.youtube\.com//g'
+endif
+	#Delete all pyc files
+	find $(tmpInstall) -name '*.pyc' -print0 | xargs -0 rm -f
+	find $(tmpInstall) -name '__pycache__' -print0 | xargs -0 rm -rf
+	find $(tmpInstall) -name 'yade.py' -print0 | xargs -0 rm -f
+
+override_dh_installchangelogs:
+	dh_installchangelogs ChangeLog
+
+override_dh_installman:
+	dh_installman -p yade yade.1 yade-batch.1
+
+override_dh_compress:
+	dh_compress --all -X.py -X.stl -X.gts -X.geo -X.mesh -X.msh -X.pdf -X.png -X.svg -X.txt -X.js -X.inv
+
+override_dh_auto_test:
+
+ifeq ($(BUILD_DOC), yes)
+execute_after_dh_installdocs:
+	dh_sphinxdoc
+endif
+
+execute_after_dh_auto_clean:
+	rm -rf $(BUILDDIR)-$(DOUBLE_SUFFIX)
+	rm -rf $(BUILDDIR)-$(LONGDOUBLE_SUFFIX)
+	rm -rf $(BUILDDIR)-$(FLOAT128_SUFFIX)
+	rm -rf $(BUILDDIR)-$(MPFR150_SUFFIX)
+	rm -rf $(CURDIR)/yade.1
+	rm -rf $(CURDIR)/yade-batch.1
+	rm -rf $(tmpDirMatplotLib)
+	rm -rf $(CURDIR)/doc/sphinx/_build
+	rm -rf $(CURDIR)/doc/sphinx/__pycache__

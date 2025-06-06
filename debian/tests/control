@@ -1,0 +1,3 @@
+Tests: yadetest
+Depends: yade
+Restrictions: allow-stderr

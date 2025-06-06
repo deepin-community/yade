@@ -1,0 +1,3 @@
+debian/*.xpm usr/share/pixmaps/
+debian/yade.desktop usr/share/applications/
+usr/bin

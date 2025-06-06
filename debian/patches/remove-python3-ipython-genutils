@@ -1,0 +1,43 @@
+Description: Remove python3 ipython genutils
+Index: yade/doc/sphinx/ipython_directive200.py
+===================================================================
+--- yade.orig/doc/sphinx/ipython_directive200.py
++++ yade/doc/sphinx/ipython_directive200.py
+@@ -150,15 +150,7 @@ except ImportError:
+ from IPython import Config, InteractiveShell
+ from IPython.core.profiledir import ProfileDir
+ from IPython.utils import io
+-try:
+-	from IPython.utils.py3compat import PY3
+-except ImportError:
+-	from ipython_genutils.py3compat import PY3
+-
+-if PY3:
+-	from io import StringIO
+-else:
+-	from io import StringIO
++from io import StringIO
+ 
+ #-----------------------------------------------------------------------------
+ # Globals
+Index: yade/doc/sphinx/ipython_directive500.py
+===================================================================
+--- yade.orig/doc/sphinx/ipython_directive500.py
++++ yade/doc/sphinx/ipython_directive500.py
+@@ -146,15 +146,7 @@ from traitlets.config import Config
+ from IPython import InteractiveShell
+ from IPython.core.profiledir import ProfileDir
+ from IPython.utils import io
+-try:
+-	from IPython.utils.py3compat import PY3
+-except ImportError:
+-	from ipython_genutils.py3compat import PY3
+-
+-if PY3:
+-	from io import StringIO
+-else:
+-	from io import StringIO
++from io import StringIO
+ 
+ #-----------------------------------------------------------------------------
+ # Globals
